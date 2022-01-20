@@ -59,11 +59,11 @@ CREATE TABLE IF NOT EXISTS `Car` (
   `Mileage` INT NULL,
   `Description` LONGTEXT NULL,
   `Motor_id` INT NOT NULL,
-  `status_id` INT NULL,
+  `Status_id` INT NULL,
   `Type_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_Car_Status_id`
-    FOREIGN KEY (`status_id`)
+    FOREIGN KEY (`Status_id`)
     REFERENCES `Status` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -105,18 +105,18 @@ ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `Reservation` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `customer_id` INT NOT NULL,
-  `car_id` INT NOT NULL,
+  `Customer_id` INT NOT NULL,
+  `Car_id` INT NOT NULL,
   `Start_date` DATE NOT NULL,
   `End_date` DATE NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_Reservation_customer_id`
-    FOREIGN KEY (`customer_id`)
+    FOREIGN KEY (`Customer_id`)
     REFERENCES `User` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Reservation_car_id`
-    FOREIGN KEY (`car_id`)
+    FOREIGN KEY (`Car_id`)
     REFERENCES `Car` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -144,16 +144,16 @@ ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `Option` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `reservation_id` INT NOT NULL,
-  `service_id` INT NOT NULL,
+  `Reservation_id` INT NOT NULL,
+  `Service_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_Option_reservation_id`
-    FOREIGN KEY (`reservation_id`)
+  CONSTRAINT `fk_Option_Reservation_id`
+    FOREIGN KEY (`Reservation_id`)
     REFERENCES `Reservation` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Option_servie_id`
-    FOREIGN KEY (`service_id`)
+  CONSTRAINT `fk_Option_Service_id`
+    FOREIGN KEY (`Service_id`)
     REFERENCES `Service` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)

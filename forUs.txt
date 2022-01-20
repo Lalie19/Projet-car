@@ -1,0 +1,8 @@
+Motor:
+INSERT INTO `Motor` (`id`, `Category_flue`) VALUES (1,'Electric'),(2,'Hybride'),(3,'Essence'),(4,'Diesel');
+
+Type
+INSERT INTO `Type` (`id`, `Category`) VALUES (1,'SUV'),(2,'Berline'),(3,'Citadine'),(4,'Coupe');
+
+Car :
+INSERT INTO Car (id,Brand, Plate,Name, Door,Capacity, Mileage,Motor_id, Type_id) VALUES (1,'Peugeot','AB-123-CD','5008',5,7,2000,2, 1);

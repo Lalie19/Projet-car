@@ -21,7 +21,6 @@ INSERT INTO Car (id,Brand, Plate,Name, Door,Capacity, Mileage,Motor_id, Type_id)
 INSERT INTO Car (id,Brand, Plate,Name, Door,Capacity, Mileage,Motor_id, Type_id) VALUES (12,'Ford','IS-118-TF','Puma Flexifuel E85',5,5,25180,3, 1);
 
 
+
 Pour Modifier une ligne :
 UPDATE Car SET Name = 'Talisman' WHERE id = 7;
-
-

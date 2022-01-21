@@ -15,6 +15,12 @@ INSERT INTO Car (id,Brand, Plate,Name, Door,Capacity, Mileage,Motor_id, Type_id)
 INSERT INTO Car (id,Brand, Plate,Name, Door,Capacity, Mileage,Motor_id, Type_id) VALUES (7,'Renault','TK-504-KR','Talisman',5,5,34567,4, 2);
 INSERT INTO Car (id,Brand, Plate,Name, Door,Capacity, Mileage,Motor_id, Type_id) VALUES (8,'Renault','SK-160-ST','Megane',5,5,4697,1, 2);
 
+INSERT INTO Car (id,Brand, Plate,Name, Door,Capacity, Mileage,Motor_id, Type_id) VALUES (9,'Ford','JH-654-AZ','Mustang GT',3,4,10500,3, 2);
+INSERT INTO Car (id,Brand, Plate,Name, Door,Capacity, Mileage,Motor_id, Type_id) VALUES (10,'Ford','ZK-619-PR','Mustang Mach-E AWD',5,5,5602,1, 1);
+INSERT INTO Car (id,Brand, Plate,Name, Door,Capacity, Mileage,Motor_id, Type_id) VALUES (11,'Ford','VD-243-RS','S-MAX VIGINALE',5,7,15320,2, 3);
+INSERT INTO Car (id,Brand, Plate,Name, Door,Capacity, Mileage,Motor_id, Type_id) VALUES (12,'Ford','IS-118-TF','Puma Flexifuel E85',5,5,25180,3, 1);
+
+
 Pour Modifier une ligne :
 UPDATE Car SET Name = 'Talisman' WHERE id = 7;
 

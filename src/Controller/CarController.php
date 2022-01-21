@@ -2,18 +2,18 @@
 
 namespace App\Controller;
 
-use App\Model\ItemManager;
+use App\Model\CarManager;
 
 /**
- * Class ItemController
+ * Class CarController
  *
  */
-class ItemController extends AbstractController
+class CarController extends AbstractController
 {
 
 
     /**
-     * Display item listing
+     * Display car listing
      *
      * @return string
      * @throws \Twig\Error\LoaderError
@@ -22,15 +22,15 @@ class ItemController extends AbstractController
      */
     public function index()
     {
-        $itemManager = new ItemManager();
-        $items = $itemManager->selectAll();
+        $carManager = new cCarManager();
+        $cars = $carManager->selectAll();
 
-        return $this->twig->render('Item/index.html.twig', ['items' => $items]);
+        return $this->twig->render('Car/index.html.twig', ['cars' => $cars]);
     }
 
 
     /**
-     * Display item informations specified by $id
+     * Display car informations specified by $id
      *
      * @param int $id
      * @return string
@@ -40,15 +40,15 @@ class ItemController extends AbstractController
      */
     public function show(int $id)
     {
-        $itemManager = new ItemManager();
-        $item = $itemManager->selectOneById($id);
+        $carManager = new CarManager();
+        $car = $carManager->selectOneById($id);
 
-        return $this->twig->render('Item/show.html.twig', ['item' => $item]);
+        return $this->twig->render('Car/show.html.twig', ['car' => $car]);
     }
 
 
     /**
-     * Display item edition page specified by $id
+     * Display car edition page specified by $id
      *
      * @param int $id
      * @return string
@@ -58,20 +58,20 @@ class ItemController extends AbstractController
      */
     public function edit(int $id): string
     {
-        $itemManager = new ItemManager();
-        $item = $itemManager->selectOneById($id);
+        $carManager = new CarManager();
+        $car = $carManager->selectOneById($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $item['title'] = $_POST['title'];
-            $itemManager->update($item);
+            $car['title'] = $_POST['title'];
+            $carManager->update($car);
         }
 
-        return $this->twig->render('Item/edit.html.twig', ['item' => $item]);
+        return $this->twig->render('Car/edit.html.twig', ['car' => $car]);
     }
 
 
     /**
-     * Display item creation page
+     * Display car creation page
      *
      * @return string
      * @throws \Twig\Error\LoaderError
@@ -82,27 +82,27 @@ class ItemController extends AbstractController
     {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $itemManager = new ItemManager();
-            $item = [
+            $carManager = new CarManager();
+            $car = [
                 'title' => $_POST['title'],
             ];
-            $id = $itemManager->insert($item);
-            header('Location:/item/show/' . $id);
+            $id = $carManager->insert($car);
+            header('Location:/car/show/' . $id);
         }
 
-        return $this->twig->render('Item/add.html.twig');
+        return $this->twig->render('Car/add.html.twig');
     }
 
 
     /**
-     * Handle item deletion
+     * Handle car deletion
      *
      * @param int $id
      */
     public function delete(int $id)
     {
-        $itemManager = new ItemManager();
-        $itemManager->delete($id);
-        header('Location:/item/index');
+        $carManager = new CarManager();
+        $carManager->delete($id);
+        header('Location:/car/index');
     }
 }

@@ -9,45 +9,31 @@ DROP TABLE IF EXISTS `Status` ;
 -- -----------------------------------------------------
 -- Table `Status`
 -- -----------------------------------------------------
-
-
 CREATE TABLE IF NOT EXISTS `Status` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `Available` TINYINT NULL,
   `Lieu` VARCHAR(125) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
-
-
 -- -----------------------------------------------------
 -- Table `Type`
 -- -----------------------------------------------------
-
-
 CREATE TABLE IF NOT EXISTS `Type` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `Category` VARCHAR(125) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
-
-
 -- -----------------------------------------------------
 -- Table `Motor`
 -- -----------------------------------------------------
-
-
 CREATE TABLE IF NOT EXISTS `Motor` (
   `id` INT NOT NULL,
   `Category_flue` VARCHAR(125) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
-
-
 -- -----------------------------------------------------
 -- Table `Car`
 -- -----------------------------------------------------
-
-
 CREATE TABLE IF NOT EXISTS `Car` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `Brand` VARCHAR(125) NOT NULL,
@@ -78,13 +64,9 @@ CREATE TABLE IF NOT EXISTS `Car` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-
 -- -----------------------------------------------------
 -- Table `User`
 -- -----------------------------------------------------
-
-
 CREATE TABLE IF NOT EXISTS `User` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `Firstname` VARCHAR(125) NOT NULL,
@@ -96,13 +78,9 @@ CREATE TABLE IF NOT EXISTS `User` (
   `Role` JSON NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
-
-
 -- -----------------------------------------------------
 -- Table `Reservation`
 -- -----------------------------------------------------
-
-
 CREATE TABLE IF NOT EXISTS `Reservation` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `Customer_id` INT NOT NULL,
@@ -121,13 +99,9 @@ CREATE TABLE IF NOT EXISTS `Reservation` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-
 -- -----------------------------------------------------
 -- Table `Service`
 -- -----------------------------------------------------
-
-
 CREATE TABLE IF NOT EXISTS `Service` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(100) NOT NULL,
@@ -135,13 +109,9 @@ CREATE TABLE IF NOT EXISTS `Service` (
   `Description` VARCHAR(125) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
-
-
 -- -----------------------------------------------------
 -- Table `Option`
 -- -----------------------------------------------------
-
-
 CREATE TABLE IF NOT EXISTS `Option` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `Reservation_id` INT NOT NULL,
@@ -158,3 +128,29 @@ CREATE TABLE IF NOT EXISTS `Option` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+-- -----------------------------------------------------
+-- Insert to `Type`
+-- -----------------------------------------------------
+INSERT INTO `Type` (`id`, `Category`) VALUES (1,'SUV'),(2,'Berline'),(3,'Citadine'),(4,'Coupe');
+-- -----------------------------------------------------
+-- Insert to `Motor`
+-- -----------------------------------------------------
+INSERT INTO `Motor` (`id`, `Category_flue`) VALUES (1,'Electric'),(2,'Hybride'),(3,'Essence'),(4,'Diesel');
+  -- -----------------------------------------------------
+-- Insert to `Car`
+-- -----------------------------------------------------
+INSERT INTO Car (`Brand`, `Plate`, `Name`, `Door`, `Capacity`, `Mileage`, `Motor_id`, `Type_id`) 
+VALUES 
+('Peugeot','AB-123-CD','5008',5,7,2000,2,1),
+('Peugeot','BC-234-DE','2008',5,5,80000,1,1),
+('Peugeot','CD-345-EF','508',5,5,100000,4,2),
+('Peugeot','DE-456-FG','108',3,5,25000,3,3),
+('Renault','CD-325-FK','Capture',5,5,2567,2,1),
+('Renault','SN-121-TG','Kadjar',5,5,35067,3,1),
+('Renault','TK-504-KR','Talisman',5,5,34567,4,2),
+('Renault','SK-160-ST','Megane',5,5,4697,1, 2),
+('Ford','JH-654-AZ','Mustang GT',3,4,10500,3, 2),
+('Ford','ZK-619-PR','Mustang Mach-E AWD',5,5,5602,1,1),
+('Ford','VD-243-RS','S-MAX VIGINALE',5,7,15320,2,3),
+('Ford','IS-118-TF','Puma Flexifuel E85',5,5,25180,3,1);
+

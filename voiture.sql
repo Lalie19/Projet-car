@@ -1,145 +1,160 @@
-DROP TABLE IF EXISTS `Option` ;
-DROP TABLE IF EXISTS `Service` ;
-DROP TABLE IF EXISTS `Reservation` ;
-DROP TABLE IF EXISTS `User` ;
-DROP TABLE IF EXISTS `Car` ;
-DROP TABLE IF EXISTS `Motor` ;
-DROP TABLE IF EXISTS `Type` ;
-DROP TABLE IF EXISTS `Status` ;
+DROP TABLE IF EXISTS `option_service` ;
+DROP TABLE IF EXISTS `service` ;
+DROP TABLE IF EXISTS `reservation` ;
+DROP TABLE IF EXISTS `user` ;
+DROP TABLE IF EXISTS `car` ;
+DROP TABLE IF EXISTS `motor` ;
+DROP TABLE IF EXISTS `type` ;
+DROP TABLE IF EXISTS `status` ;
 -- -----------------------------------------------------
--- Table `Status`
+-- Table `status`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Status` (
+CREATE TABLE IF NOT EXISTS `status` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `Available` TINYINT NULL,
-  `Lieu` VARCHAR(125) NOT NULL,
+  `available` TINYINT NULL,
+  `lieu` VARCHAR(125) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
+
+
 -- -----------------------------------------------------
--- Table `Type`
+-- Table `type`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Type` (
+CREATE TABLE IF NOT EXISTS `type` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `Category` VARCHAR(125) NULL,
+  `category` VARCHAR(125) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
+
+
 -- -----------------------------------------------------
--- Table `Motor`
+-- Table `motor`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Motor` (
+CREATE TABLE IF NOT EXISTS `motor` (
   `id` INT NOT NULL,
-  `Category_flue` VARCHAR(125) NULL,
+  `category_flue` VARCHAR(125) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
+
+
 -- -----------------------------------------------------
--- Table `Car`
+-- Table `car`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Car` (
+CREATE TABLE IF NOT EXISTS `car` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `Brand` VARCHAR(125) NOT NULL,
-  `Plate` VARCHAR(125) NOT NULL,
-  `Door` INT NOT NULL,
-  `Capacity` INT NOT NULL,
-  `Name` VARCHAR(45) NOT NULL,
-  `Image` VARCHAR(125) NULL,
-  `Mileage` INT NULL,
-  `Description` LONGTEXT NULL,
-  `Motor_id` INT NOT NULL,
-  `Status_id` INT NULL,
-  `Type_id` INT NOT NULL,
+  `brand` VARCHAR(125) NOT NULL,
+  `plate` VARCHAR(125) NOT NULL,
+  `door` INT NOT NULL,
+  `capacity` INT NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `image` VARCHAR(125) NULL,
+  `mileage` INT NULL,
+  `description` LONGTEXT NULL,
+  `motor_id` INT NOT NULL,
+  `status_id` INT NULL,
+  `type_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_Car_Status_id`
-    FOREIGN KEY (`Status_id`)
-    REFERENCES `Status` (`id`)
+  CONSTRAINT `fk_Car_status_id`
+    FOREIGN KEY (`status_id`)
+    REFERENCES `status` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Car_Type_id`
-    FOREIGN KEY (`Type_id`)
-    REFERENCES `Type` (`id`)
+  CONSTRAINT `fk_Car_type_id`
+    FOREIGN KEY (`type_id`)
+    REFERENCES `type` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Car_Motor_id`
-    FOREIGN KEY (`Motor_id`)
-    REFERENCES `Motor` (`id`)
+  CONSTRAINT `fk_Car_motor_id`
+    FOREIGN KEY (`motor_id`)
+    REFERENCES `motor` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+
 -- -----------------------------------------------------
--- Table `User`
+-- Table `user`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `User` (
+CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `Firstname` VARCHAR(125) NOT NULL,
-  `Lastname` VARCHAR(125) NOT NULL,
-  `E-mail` VARCHAR(125) NOT NULL,
-  `Adress` VARCHAR(125) NOT NULL,
-  `Phone` INT NOT NULL,
-  `Password` VARCHAR(125) NOT NULL,
-  `Role` JSON NULL,
+  `firstname` VARCHAR(125) NOT NULL,
+  `lastname` VARCHAR(125) NOT NULL,
+  `e-mail` VARCHAR(125) NOT NULL,
+  `adress` VARCHAR(125) NOT NULL,
+  `phone` INT NOT NULL,
+  `password` VARCHAR(125) NOT NULL,
+  `role` JSON NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
+
+
 -- -----------------------------------------------------
--- Table `Reservation`
+-- Table `reservation`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Reservation` (
+CREATE TABLE IF NOT EXISTS `reservation` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `Customer_id` INT NOT NULL,
-  `Car_id` INT NOT NULL,
-  `Start_date` DATE NOT NULL,
-  `End_date` DATE NOT NULL,
+  `customer_id` INT NOT NULL,
+  `car_id` INT NOT NULL,
+  `start_date` DATE NOT NULL,
+  `end_date` DATE NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_Reservation_customer_id`
-    FOREIGN KEY (`Customer_id`)
-    REFERENCES `User` (`id`)
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Reservation_car_id`
-    FOREIGN KEY (`Car_id`)
-    REFERENCES `Car` (`id`)
+    FOREIGN KEY (`car_id`)
+    REFERENCES `car` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+
 -- -----------------------------------------------------
--- Table `Service`
+-- Table `service`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Service` (
+CREATE TABLE IF NOT EXISTS `service` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `Name` VARCHAR(100) NOT NULL,
-  `Price` INT NOT NULL,
-  `Description` VARCHAR(125) NULL,
+  `name` VARCHAR(100) NOT NULL,
+  `price` INT NOT NULL,
+  `description` VARCHAR(125) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
+
+
 -- -----------------------------------------------------
--- Table `Option`
+-- Table `option`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Option` (
+CREATE TABLE IF NOT EXISTS `option_service` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `Reservation_id` INT NOT NULL,
-  `Service_id` INT NOT NULL,
+  `reservation_id` INT NOT NULL,
+  `service_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_Option_Reservation_id`
-    FOREIGN KEY (`Reservation_id`)
-    REFERENCES `Reservation` (`id`)
+  CONSTRAINT `fk_Option_reservation_id`
+    FOREIGN KEY (`reservation_id`)
+    REFERENCES `reservation` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Option_Service_id`
-    FOREIGN KEY (`Service_id`)
-    REFERENCES `Service` (`id`)
+  CONSTRAINT `fk_Option_service_id`
+    FOREIGN KEY (`service_id`)
+    REFERENCES `service` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
 -- -----------------------------------------------------
 -- Insert to `Type`
 -- -----------------------------------------------------
-INSERT INTO `Type` (`id`, `Category`) VALUES (1,'SUV'),(2,'Berline'),(3,'Citadine'),(4,'Coupe');
+INSERT INTO `type` (`id`, `category`) VALUES (1,'SUV'),(2,'Berline'),(3,'Citadine'),(4,'Coupe');
 -- -----------------------------------------------------
 -- Insert to `Motor`
 -- -----------------------------------------------------
-INSERT INTO `Motor` (`id`, `Category_flue`) VALUES (1,'Electric'),(2,'Hybride'),(3,'Essence'),(4,'Diesel');
+INSERT INTO `motor` (`id`, `category_flue`) VALUES (1,'Electric'),(2,'Hybride'),(3,'Essence'),(4,'Diesel');
   -- -----------------------------------------------------
 -- Insert to `Car`
 -- -----------------------------------------------------
-INSERT INTO Car (`Brand`, `Plate`, `Name`, `Door`, `Capacity`, `Mileage`, `Motor_id`, `Type_id`) 
+INSERT INTO car (`brand`, `plate`, `name`, `door`, `capacity`, `mileage`, `motor_id`, `type_id`) 
 VALUES 
 ('Peugeot','AB-123-CD','5008',5,7,2000,2,1),
 ('Peugeot','BC-234-DE','2008',5,5,80000,1,1),
@@ -153,4 +168,3 @@ VALUES
 ('Ford','ZK-619-PR','Mustang Mach-E AWD',5,5,5602,1,1),
 ('Ford','VD-243-RS','S-MAX VIGINALE',5,7,15320,2,3),
 ('Ford','IS-118-TF','Puma Flexifuel E85',5,5,25180,3,1);
-

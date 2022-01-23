@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Model;
+
+class StatusManager extends AbstractManager
+{
+    /**
+     *
+     */
+    const TABLE = 'status';
+
+    /**
+     *  Initializes this class.
+     */
+    public function __construct()
+    {
+        parent::__construct(self::TABLE);
+    }
+    
+}

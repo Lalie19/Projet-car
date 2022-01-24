@@ -1,26 +1,26 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Hello developer!</h1>
-
-   <h1>Antoy</h1>
-   <h1>Thonino</h1>
-   <h1>Eulalie</h1>
-    
-   
-    
-    <p>to show this, you pass by:</p>
 
 
-    <ol>
-        <li>/public/index.php</li>
-        <li>/src/Controller/HomeController.php</li>
-        <li>/src/View/layout.html.twig</li>
-        <li>/src/View/Home/index.html.twig</li>
-        <li>go back in /src/Contoller/HomeController.php with result of view</li>
-        <li>go back in /public/index.php with result of Controller</li>
-        <li>/public/index show the result of the HomeController</li>
-    </ol>
-    <br>
-    <p>you can try the app with <a href="/item">item</a></p>
+    <img src="/assets/images/photohome.png" alt="" width="1950" height="888" class="d-inline">
+  <div class="card home" style="width: 20rem;">
+  <div class="card-body">
+    <h5 class="card-title">Reservez votre véhicule</h5>
+  <form method="post">
+    <input type="hidden" name="id" value="">
+            <div class="form-group">
+                <label class="col-form-label" for="birthday">Début : </label>
+                <input type="date" class="form-control border border-3" name="birthday" value="{{ wizard.birthday }}">
+            </div>
+            <div class="form-group">
+                <label class="col-form-label" for="birthday">Fin : </label>
+                <input type="date" class="form-control border border-3" name="birthday" value="{{ wizard.birthday }}">
+            </div>
+                <a class="btn btn-primary" href="/wizard">Offre</a>
+</form>
+  </div>
+</div>
+
+
 {% endblock %}

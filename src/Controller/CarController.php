@@ -22,7 +22,7 @@ class CarController extends AbstractController
      */
     public function index()
     {
-        $carManager = new cCarManager();
+        $carManager = new CarManager();
         $cars = $carManager->selectAll();
 
         return $this->twig->render('Car/index.html.twig', ['cars' => $cars]);
@@ -62,8 +62,17 @@ class CarController extends AbstractController
         $car = $carManager->selectOneById($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $car['title'] = $_POST['title'];
-            $carManager->update($car);
+            $car= [
+                "brand" => $_POST['brand'],
+                "plate" => $_POST['plate'],
+                "door" => $_POST['door'],
+                "capacity" => $_POST['capacity'],
+                "name" => $_POST['name'],
+                "image" => $_POST['image'],
+                "mileage" => $_POST['mileage'],
+                "description" => $_POST['description'],
+            ];
+            $carManager->edit($id, $car);
         }
 
         return $this->twig->render('Car/edit.html.twig', ['car' => $car]);
@@ -83,10 +92,17 @@ class CarController extends AbstractController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $carManager = new CarManager();
-            $car = [
-                'title' => $_POST['title'],
+            $car= [
+                "brand" => $_POST['brand'],
+                "plate" => $_POST['plate'],
+                "door" => $_POST['door'],
+                "capacity" => $_POST['capacity'],
+                "name" => $_POST['name'],
+                "image" => $_POST['image'],
+                "mileage" => $_POST['mileage'],
+                "description" => $_POST['description'],
             ];
-            $id = $carManager->insert($car);
+            $id = $carManager->create($car);
             header('Location:/car/show/' . $id);
         }
 

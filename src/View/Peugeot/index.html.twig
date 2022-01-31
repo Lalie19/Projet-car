@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Car</h1>
+    <ul>
+        {% for peugeot in peugeots %}
+            <li>{{ peugeot.id }} {{ peugeot.brand  }} {{ peugeot.name }}</li>
+        {% else %}
+            <li>Nothing to display</li>
+        {% endfor %}
+        </ul>
+{% endblock %}

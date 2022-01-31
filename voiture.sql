@@ -168,4 +168,3 @@ VALUES
 ('Ford','ZK-619-PR','Mustang Mach-E AWD',5,5,5602,1,1),
 ('Ford','VD-243-RS','S-MAX VIGINALE',5,7,15320,2,3),
 ('Ford','IS-118-TF','Puma Flexifuel E85',5,5,25180,3,1);
-

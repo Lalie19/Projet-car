@@ -23,7 +23,9 @@ class PeugeotController extends AbstractController
     public function index()
     {
         $peugeotManager = new PeugeotManager();
-        $peugeots = $peugeotManager->selectAll();
+        $peugeots = $peugeotManager->selectAll(brand == peugeot);
+
+        
 
         return $this->twig->render('Peugeot/index.html.twig', ['peugeots' => $peugeots]);
     }

@@ -7,7 +7,7 @@ class FordManager extends AbstractManager
     /**
      *
      */
-    const TABLE = 'car';
+    const TABLE = 'car WHERE brand LIKE "for%"';
 
     /**
      *  Initializes this class.

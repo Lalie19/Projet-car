@@ -7,7 +7,7 @@ class RenaultManager extends AbstractManager
     /**
      *
      */
-    const TABLE = 'car';
+    const TABLE = 'car WHERE brand LIKE "rena%"';
 
     /**
      *  Initializes this class.

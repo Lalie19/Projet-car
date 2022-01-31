@@ -1,12 +1,18 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Car</h1>
-    <ul>
-        {% for peugeot in peugeots %}
-            <li>{{ peugeot.id }} {{ peugeot.brand  }} {{ peugeot.name }}</li>
-        {% else %}
+<h1 class="mx-4 ">Modèle Peugeot : </h1>
+
+<div class="card m-5" style="max-width: 500px">
+    
+    {% for peugeot in peugeots %}
+
+        <h5 class="m-1 mx-2">{{ peugeot.brand }} {{ peugeot.name }}</h5>
+        <img src="/assets/images/{{peugeot.name}}.png" class="m-2"></a>
+
+    {% else %}
             <li>Nothing to display</li>
-        {% endfor %}
-        </ul>
+    {% endfor %}
+
+</div>
 {% endblock %}

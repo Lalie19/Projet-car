@@ -1,12 +1,18 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Car</h1>
-    <ul>
-        {% for ford in fords %}
-            <li>{{ ford.id }} {{ ford.brand  }} {{ ford.name }}</li>
-        {% else %}
+<h1 class="mx-4 "> Modèle Ford : </h1>
+
+<div class="card m-5" style="max-width: 500px">
+    
+    {% for ford in fords %}
+
+        <h5 class="m-1 mx-2">{{ ford.brand }} {{ ford.name }}</h5>
+        <img src="/assets/images/{{ford.name}}.png" class="m-2"></a>
+
+    {% else %}
             <li>Nothing to display</li>
-        {% endfor %}
-        </ul>
+    {% endfor %}
+
+</div>
 {% endblock %}

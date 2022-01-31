@@ -14,7 +14,9 @@ class PeugeotManager extends AbstractManager
      */
     public function __construct()
     {
+        $sql = 'SELECT brand FROM car WHERE brand LIKE "peug%"';
         parent::__construct(self::TABLE);
+        
 
     }
     

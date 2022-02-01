@@ -1,18 +1,16 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-<h1 class="mx-4 ">Modèle Renault : </h1>
-
-<div class="card m-5" style="max-width: 500px">
+    <h1 class="mx-4 ">Modèle Renault : </h1>
+    <div class="d-flex flex-wrap d-flex justify-content-center" style="">
+        {% for renault in renaults %}
+            <div class="card m-2" style="max-width: 450px">
+            <h5 class="m-1 mx-2">{{ renault.brand }} {{ renault.name }}</h5>
+            <img src="/assets/images/{{renault.name}}.png" class="m-2"></a>
+            </div>
+        {% else %}
+                <li>Nothing to display</li>
+        {% endfor %}
     
-    {% for renault in renaults %}
-
-        <h5 class="m-1 mx-2">{{ renault.brand }} {{ renault.name }}</h5>
-        <img src="/assets/images/{{renault.name}}.png" class="m-2"></a>
-
-    {% else %}
-            <li>Nothing to display</li>
-    {% endfor %}
-
-</div>
+    </div>
 {% endblock %}

@@ -1,9 +1,8 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Ajouter un utilisateur{% endblock %}
-
+{% block Title %} S'enregistrer {% endblock %}
 {% block content %}
-    <h1>Ajouter un utilisateur</h1>
+    <h1>Inscription</h1>
     <form method="post">
     <div>
         <label for="firstname" class="form-label mt-4">Prénom : </label>
@@ -27,4 +26,5 @@
     </div>
     <input type="submit" class="btn btn-primary mt-3 mb-3" value="Enregistrer">
 </form>
+
 {% endblock %}

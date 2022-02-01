@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Car</h1>
+    <ul>
+        {% for reservation in reservations %}
+            <li>{{ reservation.id }} {{ reservation.brand  }} {{ reservation.name }}</li>
+        {% else %}
+            <li>Nothing to display</li>
+        {% endfor %}
+        </ul>
+{% endblock %}

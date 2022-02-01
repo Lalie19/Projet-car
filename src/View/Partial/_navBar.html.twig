@@ -1,48 +1,42 @@
-</nav>
-<nav class="navbar navbar-expand-md navbar-dark color1 ">
-  <div class="container-fluid">
-  <img src="/assets/images/logo.png" alt="" width="57" height="68" class="d-inline">
-    <a class="navbar-brand mx-2" href="/">Acceuil</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="container-fluid navbar navbar-expand-lg navbar-dark navclass mx-3">
+    <img src="/assets/images/logo.png" alt="" width="57" height="68" class="d-inline ajusteImg ">
+    <a class=" row navbar-brand mx-2" href="/">Acceuil</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link {% if (carIndex) %} active{% endif %}" href="/car">véhicules</a>
         </li>
-        <li class="nav-item">
+        {# <li class="nav-item">
           <a class="nav-link" href="#">About</a>
-        </li>
+        </li> #}
       </ul>
       <span class="navbar-text">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-
-            <input class="form-control me-auto mb-2 mb-md-0" style="width: 300px"type="text">
-
+            <input class="form-control me-auto mb-2 mb-lg-0" style="width: 300px"type="text">
           </li>
           <li class="nav-item">
             <button class="btn btn-secondary " type="submit">Search</button>
           </li>
-
-      <li class="nav-item">
-          <a class="nav-link" href="/user/subscribe">Inscription</a>
-        </li>
-      <li class="nav-item ">
-        <a class="nav-link " href="/user/profile">Profil</a>
-        </li>
-      <li class="nav-item">
-            <a class="nav-link btn btn-secondary text-black" href="/user/login">Connexion</a>
-        </li>
-      <li class="nav-item">
-          <a class="nav-link btn btn-light text-black" href="/user/logout">Deconnexion</a>
-        </li>
-        
-
+          <li class="nav-item">
+            <a class="nav-link" href="/user/subscribe">Inscription</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/user/profile">Profil</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link btn btn-secondary  text-black mx-2" href="/user/login">Connexion</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link  btn btn-light text-black " href="/user/logout">Deconnexion</a>
+          </li>
         </ul>
       </span>
     </div>
-  </div>
 </nav>
+
+
 

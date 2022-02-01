@@ -1,6 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+<body class="row">
     <h1 class="mx-4 ">Modèle Peugeot : </h1>
     <div class="d-flex flex-wrap d-flex justify-content-center" style="">
         {% for peugeot in peugeots %}
@@ -12,4 +13,5 @@
                 <li>Nothing to display</li>
         {% endfor %}
     </div>
+</body>
 {% endblock %}

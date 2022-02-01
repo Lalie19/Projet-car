@@ -1,18 +1,15 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-<h1 class="mx-4 ">Modèle Peugeot : </h1>
-
-<div class="card m-5" style="max-width: 500px">
-    
-    {% for peugeot in peugeots %}
-
-        <h5 class="m-1 mx-2">{{ peugeot.brand }} {{ peugeot.name }}</h5>
-        <img src="/assets/images/{{peugeot.name}}.png" class="m-2"></a>
-
-    {% else %}
-            <li>Nothing to display</li>
-    {% endfor %}
-
-</div>
+    <h1 class="mx-4 ">Modèle Peugeot : </h1>
+    <div class="d-flex flex-wrap d-flex justify-content-center" style="">
+        {% for peugeot in peugeots %}
+            <div class="card m-2" style="max-width: 450px">
+                    <h5 class="m-1 mx-2">{{ peugeot.brand }} {{ peugeot.name }}</h5>
+                    <img src="/assets/images/{{peugeot.name}}.png" class="m-2"></a>
+            </div>
+        {% else %}
+                <li>Nothing to display</li>
+        {% endfor %}
+    </div>
 {% endblock %}

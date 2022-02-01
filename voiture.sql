@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `firstname` VARCHAR(125) NOT NULL,
   `lastname` VARCHAR(125) NOT NULL,
-  `e-mail` VARCHAR(125) NOT NULL,
+  `email` VARCHAR(125) NOT NULL,
   `adress` VARCHAR(125) NOT NULL,
   `phone` INT NOT NULL,
   `password` VARCHAR(125) NOT NULL,

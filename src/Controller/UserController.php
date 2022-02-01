@@ -116,7 +116,7 @@ class UserController extends AbstractController
             $user= [
                 "firstname" => $_POST['firstname'],
                 "lastname" => $_POST['lastname'],
-                "e-mail" => $_POST['e-mail'],
+                "email" => $_POST['email'],
                 "adress" => $_POST['adress'],
                 "phone" => $_POST['phone'],
                 "password" => $_POST['password'],
@@ -138,30 +138,61 @@ class UserController extends AbstractController
      */
     public function subscribe()
     {
-
+        $user= [
+            "firstname" => "",
+            "lastname" => "",
+            "email" => "",
+            "adress" => "",
+            "phone" =>"",
+            "password" => "",
+        ];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            var_dump($_POST);
-            die;
             $userManager = new UserManager();
             $error = false;
-            $user= [
-                "firstname" => $_POST['firstname'],
-                "lastname" => $_POST['lastname'],
-                "e-mail" => $_POST['e-mail'],
-                "adress" => $_POST['adress'],
-                "phone" => $_POST['phone'],
-                "password" => $_POST['password'],
-            ];
             if (!$_POST['firstname']) {
                 $this->addFlash("color-danger", "le prénom est obligatoire");
                 $error = true;
             }
+            if (!$_POST['lastname']) {
+                $this->addFlash("color-danger", "le nom est obligatoire");
+                $error = true;
+            }
+            if (!$_POST['email']) {
+                $this->addFlash("color-danger", "il faut un e-mail obligatoirement");
+                $error = true;
+            }
+            if (!$_POST['adress']) {
+                $this->addFlash("color-danger", "une adresse est obligatoire");
+                $error = true;
+            }
+            if (!$_POST['phone']) {
+                $this->addFlash("color-danger", "le numéro de téléphone est obligatoire");
+                $error = true;
+            }
+            if (!$_POST['password']) {
+                $this->addFlash("color-danger", "le mot de passe est obligatoire");
+                $error = true;
+            }
+            $user= [
+                "firstname" => $_POST['firstname'],
+                "lastname" => $_POST['lastname'],
+                "email" => $_POST['email'],
+                "adress" => $_POST['adress'],
+                "phone" => $_POST['phone'],
+                "password" => $_POST['password'],
+            ];
             
-            $id = $userManager->create($user);
-            header('Location:/user/show/' . $id);
+            if ($error) {
+                $user['password'] = password_hash($_POST['password'], PASSWORD_ARGON2ID);
+                $userManager->create($user);
+                $this->addFlash("color-success", "votre compte a été créé");
+                $this->redirectTo("/user/login");
+            }
+            
         }
-
-        return $this->twig->render('User/subscribe.html.twig');
+        return $this->twig->render('User/subscribe.html.twig', [
+            'user' => $user,
+        ]);
     }
 
 

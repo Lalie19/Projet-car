@@ -1,6 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+<body class="row">
     <h1 class="mx-4 ">Modèle Renault : </h1>
     <div class="d-flex flex-wrap d-flex justify-content-center" style="">
         {% for renault in renaults %}
@@ -11,6 +12,6 @@
         {% else %}
                 <li>Nothing to display</li>
         {% endfor %}
-    
     </div>
+</body>>
 {% endblock %}

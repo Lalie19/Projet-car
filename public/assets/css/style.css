@@ -1,15 +1,30 @@
-.color1{
-    background: #f09a0f;
+.navclass{
+    background: #f09a0f; 
+    left: -04px; 
 }
-
-
+.navclass2{
+    background: #f09a0f; 
+    left: -16px; 
+}
 
 .home{
-
     width: 300px;
     height: 300px;
-    /* top: 20px; */
 }
+
 .imgclass{
     position: absolute;
+    width: 100%;
+}
+
+body{
+    width : 100%;
+}
+.ajustCar{
+    left: -15px;
+} 
+
+.body2{
+
+    left: -04px; 
 }

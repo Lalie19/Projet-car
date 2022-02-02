@@ -4,13 +4,15 @@
 
 {% block content %}
 <body class="row">
-    <h1>Compte: {{ user.email }}</h1>
-    <p>Prénom : {{ user.firstname }}</p>
-    <p>Nom : {{ user.lastname }} </p>
-    <p>adresse de courriel : {{ user.email }} </p>
-    <p>Télephone : {{ user.phone }} </p>
-    <p>Adresse : {{ user.adress }} </p>
-    <br>
-    <a href="/user/edit" class="btn btn-warning mt-3 mb-3">Modifier</a>
-    </body>
+    <div class="m-2">
+        <h1>Compte: {{ user.email }}</h1>
+        <p>Prénom : {{ user.firstname }}</p>
+        <p>Nom : {{ user.lastname }} </p>
+        <p>adresse de courriel : {{ user.email }} </p>
+        <p>Télephone : {{ user.phone }} </p>
+        <p>Adresse : {{ user.adress }} </p>
+        <br>
+        <a href="/user/edit" class="btn btn-warning mt-3 mb-3">Modifier</a>
+    </div>
+</body>
 {% endblock %}

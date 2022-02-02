@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `adress` VARCHAR(125) NOT NULL,
   `phone` INT NOT NULL,
   `password` VARCHAR(125) NOT NULL,
-  `role` JSON NULL,
+  `role` JSON NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

@@ -42,8 +42,8 @@
 }
 .clef{ 
     position:absolute;
-    top: 40px;
-    margin-left: 00px;
+    top: 80px;
+    margin-left: 15px;
     display: block;
 }
 .h4{
@@ -94,15 +94,15 @@ p{color:blue; font-size: 40px;}
     .home{ 
         width: 300px; 
         height: 300px;
-        top:30px;
+        top:15px;
         left: -30px;
         scale: 80%;
     }
 .clef{ 
         position:absolute;
-        top: 330px;
+        top: 360px;
         margin-left: 0px;
-        scale: 70%;
+        scale: 80%;
         /* display: block; */
 }
 .h4{

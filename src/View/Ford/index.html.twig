@@ -9,6 +9,15 @@
                 <div class="card m-2" style="max-width: 450px">
                         <h5 class="m-1 mx-2">{{ ford.brand }} {{ ford.name }}</h5>
                         <img src="/assets/images/{{ford.name}}.png" class="m-2"></a>
+                            <h4 class="text-center"> Caractèristique du véhicule :</h4 class="text-center">
+                            <h5 class="m-2"> Immaticulation : {{ peugeot.plate }}</h5>
+                            <h5 class="m-2">Model : {{ peugeot.type_id }}</h5>
+                            <h5 class="m-2"> Moteur : {{ peugeot.motor_id }}</h5>
+                            <h5 class="m-2">Nombre de porte : {{ peugeot.door }}</h5> 
+                            <h5 class="m-2">Nombre de place : {{ peugeot.capacity }}</h5>
+                            <h5 class="m-2">Kilomettrage : {{ peugeot.mileage }}</h5>
+                            <h5 class="m-2">Description : {{ peugeot.description }}</h5>
+                            <h5 class="m-2">Statu véhicul : {{ peugeot.status_id }}</h5>
                 </div>
                 {% else %}
                         <li>Nothing to display</li>

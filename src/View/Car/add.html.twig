@@ -1,6 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+<body class="row">
     <h1>Add a new item</h1>
     <form method="post">
     <input type="hidden" value="{{ item.id }}" name="id">
@@ -8,4 +9,5 @@
     <input type="submit" value="Add">
 </form>
 <a href="/item">back to list</a>
+</body>
 {% endblock %}

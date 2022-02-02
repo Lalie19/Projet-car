@@ -5,7 +5,6 @@
 {% block content %}
 <body class="row">
     <h1>Liste des utilisateurs</h1>
-    
     <ul>
         {% for user in users %}
             <a href="/user/edit/{{ user.id }}">
@@ -13,7 +12,7 @@
             </a>
         {% endfor %}
     </ul>
-
     <a href="/user/add" class="btn btn-primary">Ajouter un utilisateur</a>
-    </body>
+</body>
+
 {% endblock %}

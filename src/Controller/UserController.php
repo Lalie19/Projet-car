@@ -180,9 +180,10 @@ class UserController extends AbstractController
                 "adress" => $_POST['adress'],
                 "phone" => $_POST['phone'],
                 "password" => $_POST['password'],
+                "role" => json_encode(["ROLE_USER"]),
             ];
             
-            if ($error) {
+            if (!$error) {
                 $user['password'] = password_hash($_POST['password'], PASSWORD_ARGON2ID);
                 $userManager->create($user);
                 $this->addFlash("color-success", "votre compte a été créé");

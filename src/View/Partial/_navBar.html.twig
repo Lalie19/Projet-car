@@ -21,18 +21,26 @@
           <li class="nav-item">
             <button class="btn btn-secondary " type="submit">Search</button>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/user/subscribe">Inscription</a>
+          {% if appUSER %}
+          {% if "ROLE_ADMIN" in appUSER.role %}
+          <li class="nav-item ">
+            <a class="nav-link" href="/admin">Admin</a>
           </li>
+          {% endif %}
           <li class="nav-item ">
             <a class="nav-link" href="/user/profile">Profil</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link btn btn-secondary  text-black mx-2" href="/user/login">Connexion</a>
           </li>
           <li class="nav-item ">
             <a class="nav-link  btn btn-light text-black " href="/user/logout">Deconnexion</a>
           </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="/user/subscribe">Inscription</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link btn btn-secondary  text-black mx-2" href="/user/login">Connexion</a>
+          </li>
+          {% endif %}
         </ul>
       </span>
     </div>

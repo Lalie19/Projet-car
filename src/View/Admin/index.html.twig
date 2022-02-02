@@ -1,0 +1,44 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Bienvenu sur la page admin</h1>
+
+    <div class="row row-cols-xxs-1 row-cols-xs-2 row-cols-sm-3 row-cols-xl-4 row-cols-xxl-5">
+        
+
+        <div class="col">
+            <div class="card border-primary m-2">
+                <div class="card-header">CRUD Car</div>
+                <div class="card-body">
+                    <h4 class="card-title">Gérer les voitures</h4>
+                    <p class="card-text">ici il est possible de gérer les différentes voitures</p>
+                    <a href="/car" class="btn btn-primary float-end">Liste des voitures</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card border-primary m-2">
+                <div class="card-header">CRUD user</div>
+                <div class="card-body">
+                    <h4 class="card-title">Gérer les utilisateurs</h4>
+                    <p class="card-text">ici il est possible de gérer les comptes des utilisateurs</p>
+                    <a href="/user/list" class="btn btn-primary float-end">Liste des utilisateurs</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card border-primary m-2">
+                <div class="card-header">CRUD reservation</div>
+                <div class="card-body">
+                    <h4 class="card-title">Gérer lesreservations</h4>
+                    <p class="card-text">ici il est possible de gérer les différentes réservation</p>
+                    <a href="/reservation/list" class="btn btn-primary float-end">Liste des reservations</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+{% endblock %}

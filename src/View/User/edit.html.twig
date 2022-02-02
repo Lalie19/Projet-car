@@ -3,6 +3,7 @@
 {% block title %}Modifier mon profil{% endblock %}
 
 {% block content %}
+<body class="row">
     <h1>Modifier mon profil</h1>
     <form method="post">
     <input type="hidden" value="{{ user.id }}" name="id">
@@ -31,5 +32,5 @@
     <input type="submit" class="btn btn-primary mt-3 mb-3" value="Modifier">
 </form>
 
-
+</body>
 {% endblock %}

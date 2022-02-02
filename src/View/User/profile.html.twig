@@ -3,6 +3,7 @@
 {% block title %}Information de votre compte{% endblock %}
 
 {% block content %}
+<body class="row">
     <h1>Compte: {{ user.email }}</h1>
     <p>Prénom : {{ user.firstname }}</p>
     <p>Nom : {{ user.lastname }} </p>
@@ -11,4 +12,5 @@
     <p>Adresse : {{ user.adress }} </p>
     <br>
     <a href="/user/edit" class="btn btn-warning mt-3 mb-3">Modifier</a>
+    </body>
 {% endblock %}

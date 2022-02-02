@@ -2,16 +2,18 @@
 
 {% block content %}
 <body class="row">
-    <h1 class="mx-4 ">Modèle Peugeot : </h1>
-    <div class="d-flex flex-wrap d-flex justify-content-center" style="">
-        {% for peugeot in peugeots %}
-            <div class="card m-2" style="max-width: 450px">
-                    <h5 class="m-1 mx-2">{{ peugeot.brand }} {{ peugeot.name }}</h5>
-                    <img src="/assets/images/{{peugeot.name}}.png" class="m-2"></a>
+    <div class="m-2">
+            <h1 class="mx-4 ">Modèle Peugeot : </h1>
+            <div class="d-flex flex-wrap d-flex justify-content-center" style="">
+                {% for peugeot in peugeots %}
+                    <div class="card m-2" style="max-width: 450px">
+                            <h5 class="m-1 mx-2">{{ peugeot.brand }} {{ peugeot.name }}</h5>
+                            <img src="/assets/images/{{peugeot.name}}.png" class="m-2"></a>
+                    </div>
+                {% else %}
+                        <li>Nothing to display</li>
+                {% endfor %}
             </div>
-        {% else %}
-                <li>Nothing to display</li>
-        {% endfor %}
     </div>
 </body>
 {% endblock %}

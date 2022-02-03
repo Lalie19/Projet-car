@@ -3,10 +3,10 @@
 {% block content %}
 <body class="row">
     <div class="m-2">
-        <h1>Car</h1>
+        <h1>Reservation</h1>
         <ul>
             {% for reservation in reservations %}
-                <li>{{ reservation.id }} {{ reservation.brand  }} {{ reservation.name }}</li>
+                <li>{{ reservation.id }} {{ reservation.customer_id  }} {{ reservation.namecar_id }} {{ reservation.start_date }} {{ reservation.end_date }}</li>
             {% else %}
                 <li>Nothing to display</li>
             {% endfor %}

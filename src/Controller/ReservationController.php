@@ -109,4 +109,13 @@ class ReservationController extends AbstractController
         $reservationManager->delete($id);
         header('Location:/reservation/index');
     }
+    public function list()
+    {
+        $this->isGranted("ROLE_ADMIN", "/");
+        $reservationManager = new ReservationManager();
+        $reservations = $reservationManager->selectAllOrdered();
+        return $this->twig->render('RESERVATION/list.html.twig', [
+            'reservations' => $reservations,
+        ]);
+    }
 }

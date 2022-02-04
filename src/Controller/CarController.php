@@ -121,4 +121,14 @@ class CarController extends AbstractController
         $carManager->delete($id);
         header('Location:/car/index');
     }
+    
+    public function list()
+    {
+        $this->isGranted("ROLE_ADMIN", "/");
+        $carManager = new CarManager();
+        $cars = $carManager->selectAllOrdered();
+        return $this->twig->render('Car/list.html.twig', [
+            'cars' => $cars,
+        ]);
+    }
 }

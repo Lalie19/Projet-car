@@ -1,0 +1,18 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Utilisateurs{% endblock %}
+
+{% block content %}
+<body class="row">
+    <h1>Liste des voitures</h1>
+    <ul>
+        {% for car in cars %}
+            <a href="/car/edit/{{ car.id }}">
+                <li>{{ car.id }}. {{ car.lastname }} {{ car.firstname }} - {{ car.email }} </li>
+            </a>
+        {% endfor %}
+    </ul>
+    <a href="/car/add" class="btn btn-primary">Ajouter un utilisateur</a>
+</body>
+
+{% endblock %}

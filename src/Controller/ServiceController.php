@@ -25,7 +25,7 @@ class ServiceController extends AbstractController
         $serviceManager = new ServiceManager();
         $services = $serviceManager->selectAll();
 
-        return $this->twig->render('Service/index.html.twig', ['services' => $services]);
+        return $this->twig->render('Reservation/index.html.twig', ['services' => $services]);
     }
 
 
@@ -111,4 +111,16 @@ class ServiceController extends AbstractController
         $serviceManager->delete($id);
         header('Location:/service/index');
     }
+
+    public function ma_reservation()
+    {
+        $id = $_SESSION['service']['id'];
+        $serviceManager = new ServiceManager();
+        $service = $servicerManager->selectOneById($id);
+    ;
+    
+
+        return $this->twig->render('Service/ma_reservation.html.twig', ['service' => $service]);
+    }
+
 }

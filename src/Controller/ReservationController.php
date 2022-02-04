@@ -64,7 +64,7 @@ class ReservationController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $reservation= [
                 "start_end" => $_POST['start_end'],
-                "end-date" => $_POST['end-date'],
+                "end_date" => $_POST['end_date'],
             ];
             $reservationManager->edit($id, $reservation);
         }

@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Information de votre reservation{% endblock %}
+
+{% block content %}
+<body class="row">
+    <div class="m-2">
+        <h1>Nom: {{ service.name }}</h1>
+        <p>description : {{ service.description }}</p>
+        
+    </div>
+</body>
+{% endblock %}

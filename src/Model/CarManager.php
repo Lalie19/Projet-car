@@ -16,5 +16,6 @@ class CarManager extends AbstractManager
     {
         parent::__construct(self::TABLE);
     }
-    
+
+
 }

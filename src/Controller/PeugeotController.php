@@ -25,7 +25,6 @@ class PeugeotController extends AbstractController
         $peugeotManager = new PeugeotManager();
         $peugeots = $peugeotManager->selectAll();
 
-
         return $this->twig->render('Peugeot/index.html.twig', ['peugeots' => $peugeots]);
     }
 

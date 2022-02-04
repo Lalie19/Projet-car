@@ -23,9 +23,9 @@ class TypeController extends AbstractController
     public function index()
     {
         $typeManager = new TypeManager();
-        $types = $typeManager->selectAll();
+        $peugeots = $typeManager->selectAll();
 
-        return $this->twig->render('Type/index.html.twig', ['types' => $types]);
+        return $this->twig->render('Peugeot/index.html.twig', ['types' => $peugeots]);
     }
 
 
